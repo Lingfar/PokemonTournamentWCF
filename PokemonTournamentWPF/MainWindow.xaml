@@ -1,0 +1,41 @@
+﻿<Window x:Class="PokemonTournamentWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PokemonTournamentWPF"
+        xmlns:view="clr-namespace:PokemonTournamentWPF.View"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="SandyBrown">
+            <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="logo.png" Height="80"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="LightGray" Margin="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="btnTournois" Content="Tournois" FontSize="20" Width="200" Height="50" Grid.Column="0" Margin="5" Click="btn_Click"/>
+            <Button Name="btnPokemons" Content="Pokemons" FontSize="20" Width="200" Height="50" Grid.Column="1" Margin="5" Click="btn_Click"/>
+            <Button Name="btnStades" Content="Stades" FontSize="20" Width="200" Height="50" Grid.Column="2" Margin="5" Click="btn_Click"/>
+            <Button Name="btnMatchs" Content="Matchs" FontSize="20" Width="200" Height="50" Grid.Column="3" Margin="5" Click="btn_Click"/>
+            <Button Name="btnCarac" Content="Caractéristiques" FontSize="20" Width="200" Height="50" Grid.Column="4" Margin="5" Click="btn_Click"/>
+            <Button Name="btnBonus" Content="Bonus" FontSize="20" Width="200" Height="50" Grid.Column="5" Margin="5" Click="btn_Click"/>
+            <Button Name="btnPlay" Content="Play" FontSize="20" Width="200" Height="50" Grid.Column="6" Margin="5" Click="btn_Click"/>
+        </Grid>
+        <ContentControl Name="contentControl" Grid.Row="2"/>
+    </Grid>
+</Window>
