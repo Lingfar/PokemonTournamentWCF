@@ -12,8 +12,10 @@ namespace PokemonDataAccessLayer
 {
     public class DalSqlServer : IDal
     {
-        protected string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "PokemonTournament.mdf;Integrated Security=True";
+        protected string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + @"Bin\PokemonTournament.mdf;Integrated Security=True";
         
+        //protected string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Programmation\C#\ZZ2\ServicesWeb\PokemonTournamentWCF\PokemonDataAccessLayer\PokemonTournament.mdf;Integrated Security=True";
+
         public DalSqlServer()
         {
 
