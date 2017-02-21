@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonDataAccessLayer", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonTournamentTests", "PokemonTournamentTests\PokemonTournamentTests.csproj", "{B8168BCD-32B7-4C93-9AB0-763F653FF819}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PokemonWCF(1)", "PokemonWCF\", "{2C3CBF7A-FB34-4979-A261-5E72450B7C64}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PokemonWCF", "PokemonWCF\", "{2C3CBF7A-FB34-4979-A261-5E72450B7C64}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		ProjectReferences = "{0a85b218-058d-40a0-99d0-935c83cc39a4}|PokemonTournamentEntities.dll;{bf9568c9-6b22-44c0-87aa-14acea9669e4}|PokemonBusinessLayer.dll;{64C0C46A-06A6-4BBF-85D1-C13D62130396}|PokemonDataAccessLayer.dll;{9C393FFF-F68A-4E91-BD83-1E649BAA3A05}|PokemonDataAccessLayerStub.dll;"

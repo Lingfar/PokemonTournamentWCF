@@ -32,12 +32,10 @@ public class Service : IService
     public List<PokemonComposite> GetAllPokemons()
     {
         List<PokemonComposite> allPokemons = new List<PokemonComposite>();
-
         foreach (Pokemon p in BusinessManager.Instance.GetAllPokemons())
         {
             allPokemons.Add(new PokemonComposite(p));
         }
-
         return allPokemons;
     }
 }
