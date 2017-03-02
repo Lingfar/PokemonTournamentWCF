@@ -21,6 +21,9 @@ public interface IService
     // TODO: Add your service operations here
     [OperationContract]
     List<PokemonComposite> GetAllPokemons();
+
+    [OperationContract]
+    List<StadeComposite> GetAllStades();
 }
 
 // Use a data contract as illustrated in the sample below to add composite types to service operations.
@@ -91,6 +94,61 @@ public class PokemonComposite : EntityObjectComposite
     {
         get { return carac; }
         set { carac = value; }
+    }
+}
+
+[DataContract]
+public class StadeComposite : EntityObjectComposite
+{
+    string nom;
+    ETypeElement type;
+    int nbPlaces;
+    int attaque;
+    int defense;
+
+    public StadeComposite(Stade stade)
+    {
+        Id = stade.ID;
+        Nom = stade.Nom;
+        Type = stade.Type;
+        NbPlaces = stade.NbPlaces;
+        Attaque = stade.Attaque;
+        Defense = stade.Defense;
+    }
+
+    [DataMember]
+    public string Nom
+    {
+        get { return nom; }
+        set { nom = value; }
+    }
+
+    [DataMember]
+    public ETypeElement Type
+    {
+        get { return type; }
+        set { type = value; }
+    }
+
+    [DataMember]
+    public int NbPlaces
+    {
+        get { return nbPlaces; }
+        set { nbPlaces = value; }
+    }
+
+    [DataMember]
+    public int Attaque
+    {
+        get { return attaque; }
+        set { attaque = value; }
+    }
+
+    [DataMember]
+    public int Defense
+    {
+        get { return defense; }
+        set { defense = value; }
     }
 }
 

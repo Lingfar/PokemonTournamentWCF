@@ -38,4 +38,14 @@ public class Service : IService
         }
         return allPokemons;
     }
+
+    public List<StadeComposite> GetAllStades()
+    {
+        List<StadeComposite> allStades = new List<StadeComposite>();
+        foreach (Stade s in BusinessManager.Instance.GetAllStades())
+        {
+            allStades.Add(new StadeComposite(s));
+        }
+        return allStades;
+    }
 }
