@@ -42,12 +42,6 @@ namespace PokemonTournamentEntities
             return base.GetHashCode();
         }
 
-        //public override string ToString()
-        //{
-        //    return "Pokemon : " + base.ToString() + " Nom = " + Nom + " Caracteristiques : " + Caracteristiques.ToString()
-        //        + " Type = " + Type.ToString();
-        //}
-
         public override string ToString()
         {
             return base.ToString() + " Nom = " + Nom + " Type = " + Type.ToString();
