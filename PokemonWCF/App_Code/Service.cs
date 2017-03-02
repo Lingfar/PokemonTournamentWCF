@@ -50,4 +50,25 @@ public class Service : IService
         }
         return allTournois;
     }
+
+    public bool AddNewPokemon(PokemonComposite pokemon)
+    {
+        if (pokemon.Nom != null && pokemon.Caracteristique != null)
+        {
+            Pokemon p = new Pokemon();
+            p.Nom = pokemon.Nom;
+            p.Type = pokemon.Type;
+
+            Caracteristique c = new Caracteristique();
+            c.PV = pokemon.Caracteristique.PV;
+            c.Attaque = pokemon.Caracteristique.Attaque;
+            c.Defense = pokemon.Caracteristique.Defense;
+            c.Vitesse = pokemon.Caracteristique.Vitesse;
+            c.Esquive = pokemon.Caracteristique.Esquive;
+
+            p.Caracteristiques = c;
+            return BusinessManager.Instance.AddPokemon(p);
+        }
+        return false;
+    }
 }
