@@ -48,4 +48,14 @@ public class Service : IService
         }
         return allStades;
     }
+
+    public List<MatchComposite> GetAllMatches()
+    {
+        List<MatchComposite> allMatches = new List<MatchComposite>();
+        foreach (Match m in BusinessManager.Instance.GetAllMatchs())
+        {
+            allMatches.Add(new MatchComposite(m));
+        }
+        return allMatches;
+    }
 }

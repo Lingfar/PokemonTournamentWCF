@@ -24,6 +24,9 @@ public interface IService
 
     [OperationContract]
     List<StadeComposite> GetAllStades();
+
+    [OperationContract]
+    List<MatchComposite> GetAllMatches();
 }
 
 // Use a data contract as illustrated in the sample below to add composite types to service operations.
@@ -61,6 +64,15 @@ public class EntityObjectComposite
 }
 
 [DataContract]
+public class TournoiComposite : EntityObjectComposite
+{
+    public TournoiComposite(Tournoi tournoi)
+    {
+
+    }
+}
+
+[DataContract]
 public class PokemonComposite : EntityObjectComposite
 {
     string nom;
@@ -94,6 +106,70 @@ public class PokemonComposite : EntityObjectComposite
     {
         get { return carac; }
         set { carac = value; }
+    }
+}
+
+[DataContract]
+public class MatchComposite : EntityObjectComposite
+{
+    int idPokemonVainqueur;
+    TournoiComposite tournoi;
+    EPhaseTournoi phaseTournoi;
+    PokemonComposite pokemon1;
+    PokemonComposite pokemon2;
+    StadeComposite stade;
+
+    public MatchComposite(Match match)
+    {
+        Id = match.ID;
+        IdPokemonVainqueur = match.IdPokemonVainqueur;
+        Tournoi = new TournoiComposite(match.Tournoi);
+        PhaseTournoi = match.PhaseTournoi;
+        Pokemon1 = new PokemonComposite(match.Pokemon1);
+        Pokemon2 = new PokemonComposite(match.Pokemon2);
+        Stade = new StadeComposite(match.Stade);
+    }
+
+    [DataMember]
+    public int IdPokemonVainqueur
+    {
+        get { return idPokemonVainqueur; }
+        set { idPokemonVainqueur = value; }
+    }
+
+    [DataMember]
+    public TournoiComposite Tournoi
+    {
+        get { return tournoi; }
+        set { tournoi = value; }
+    }
+
+    [DataMember]
+    public EPhaseTournoi PhaseTournoi
+    {
+        get { return phaseTournoi; }
+        set { phaseTournoi = value; }
+    }
+
+    [DataMember]
+    public PokemonComposite Pokemon1
+    {
+        get { return pokemon1; }
+        set { pokemon1 = value; }
+    }
+
+    [DataMember]
+    public PokemonComposite Pokemon2
+    {
+        get { return pokemon2; }
+        set { pokemon2 = value; }
+    }
+
+    [DataMember]
+    public StadeComposite Stade
+    {
+        get { return stade; }
+        set { stade = value; }
     }
 }
 
