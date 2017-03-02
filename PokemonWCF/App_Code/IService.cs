@@ -27,6 +27,9 @@ public interface IService
 
     [OperationContract]
     List<MatchComposite> GetAllMatches();
+
+    [OperationContract]
+    List<TournoiComposite> GetAllTournois();
 }
 
 // Use a data contract as illustrated in the sample below to add composite types to service operations.
@@ -66,9 +69,54 @@ public class EntityObjectComposite
 [DataContract]
 public class TournoiComposite : EntityObjectComposite
 {
+    string nom;
+    PokemonComposite vainqueur;
+    List<PokemonComposite> pokemons;
+    List<MatchComposite> matches;
+    List<StadeComposite> stades;
+
     public TournoiComposite(Tournoi tournoi)
     {
+        Nom = tournoi.Nom;
+        Vainqueur = new PokemonComposite(tournoi.Vainqueur);
+        Pokemons = tournoi.Pokemons.Select(p => new PokemonComposite(p)).ToList();
+        Matches = tournoi.Matches.Select(m => new MatchComposite(m)).ToList();
+        Stades = tournoi.Stades.Select(s => new StadeComposite(s)).ToList();
+    }
 
+    [DataMember]
+    public string Nom
+    {
+        get { return nom; }
+        set { nom = value; }
+    }
+
+    [DataMember]
+    public PokemonComposite Vainqueur
+    {
+        get { return vainqueur; }
+        set { vainqueur = value; }
+    }
+
+    [DataMember]
+    public List<PokemonComposite> Pokemons
+    {
+        get { return pokemons; }
+        set { pokemons = value; }
+    }
+
+    [DataMember]
+    public List<MatchComposite> Matches
+    {
+        get { return matches; }
+        set { matches = value; }
+    }
+
+    [DataMember]
+    public List<StadeComposite> Stades
+    {
+        get { return stades; }
+        set { stades = value; }
     }
 }
 
@@ -113,7 +161,7 @@ public class PokemonComposite : EntityObjectComposite
 public class MatchComposite : EntityObjectComposite
 {
     int idPokemonVainqueur;
-    TournoiComposite tournoi;
+    string tournoi;
     EPhaseTournoi phaseTournoi;
     PokemonComposite pokemon1;
     PokemonComposite pokemon2;
@@ -123,11 +171,11 @@ public class MatchComposite : EntityObjectComposite
     {
         Id = match.ID;
         IdPokemonVainqueur = match.IdPokemonVainqueur;
-        Tournoi = new TournoiComposite(match.Tournoi);
         PhaseTournoi = match.PhaseTournoi;
         Pokemon1 = new PokemonComposite(match.Pokemon1);
         Pokemon2 = new PokemonComposite(match.Pokemon2);
         Stade = new StadeComposite(match.Stade);
+        Tournoi = match.Tournoi.Nom;
     }
 
     [DataMember]
@@ -138,7 +186,7 @@ public class MatchComposite : EntityObjectComposite
     }
 
     [DataMember]
-    public TournoiComposite Tournoi
+    public string Tournoi
     {
         get { return tournoi; }
         set { tournoi = value; }

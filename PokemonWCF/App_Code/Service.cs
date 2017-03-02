@@ -11,24 +11,6 @@ using System.Text;
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
 public class Service : IService
 {
-    //public string GetData(int value)
-    //{
-    //    return string.Format("You entered: {0}", value);
-    //}
-
-    //public CompositeType GetDataUsingDataContract(CompositeType composite)
-    //{
-    //    if (composite == null)
-    //    {
-    //        throw new ArgumentNullException("composite");
-    //    }
-    //    if (composite.BoolValue)
-    //    {
-    //        composite.StringValue += "Suffix";
-    //    }
-    //    return composite;
-    //}
-
     public List<PokemonComposite> GetAllPokemons()
     {
         List<PokemonComposite> allPokemons = new List<PokemonComposite>();
@@ -57,5 +39,15 @@ public class Service : IService
             allMatches.Add(new MatchComposite(m));
         }
         return allMatches;
+    }
+
+    public List<TournoiComposite> GetAllTournois()
+    {
+        List<TournoiComposite> allTournois = new List<TournoiComposite>();
+        foreach (Tournoi t in BusinessManager.Instance.GetAllTournois())
+        {
+            allTournois.Add(new TournoiComposite(t));
+        }
+        return allTournois;
     }
 }
