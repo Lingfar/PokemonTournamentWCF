@@ -46,24 +46,30 @@ public interface IService
 //}
 
 [DataContract]
-public class PokemonComposite
+public class EntityObjectComposite
 {
     int id;
+    [DataMember]
+    public int Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
+}
+
+[DataContract]
+public class PokemonComposite : EntityObjectComposite
+{
     string nom;
     ETypeElement type;
+    CaracterisiqueComposite carac;
 
     public PokemonComposite(Pokemon pokemon)
     {
         Id = pokemon.ID;
         Nom = pokemon.Nom;
         Type = pokemon.Type;
-    }
-
-    [DataMember]
-    public int Id
-    {
-        get { return id; }
-        set { id = value; }
+        Caracteristique = new CaracterisiqueComposite(pokemon.Caracteristiques);
     }
 
     [DataMember]
@@ -78,5 +84,67 @@ public class PokemonComposite
     {
         get { return type; }
         set { type = value; }
+    }
+
+    [DataMember]
+    public CaracterisiqueComposite Caracteristique
+    {
+        get { return carac; }
+        set { carac = value; }
+    }
+}
+
+[DataContract]
+public class CaracterisiqueComposite : EntityObjectComposite
+{
+    int pv;
+    int attaque;
+    int defense;
+    int vitesse;
+    int esquive;
+
+    public CaracterisiqueComposite(Caracteristique carac)
+    {
+        Id = carac.ID;
+        PV = carac.PV;
+        Attaque = carac.Attaque;
+        Defense = carac.Defense;
+        Esquive = carac.Esquive;
+        Vitesse = carac.Vitesse;
+    }
+
+    [DataMember]
+    public int PV
+    {
+        get { return pv; }
+        set { pv = value; }
+    }
+
+    [DataMember]
+    public int Attaque
+    {
+        get { return attaque; }
+        set { attaque = value; }
+    }
+
+    [DataMember]
+    public int Defense
+    {
+        get { return defense; }
+        set { defense = value; }
+    }
+
+    [DataMember]
+    public int Esquive
+    {
+        get { return esquive; }
+        set { esquive = value; }
+    }
+
+    [DataMember]
+    public int Vitesse
+    {
+        get { return vitesse; }
+        set { vitesse = value; }
     }
 }
