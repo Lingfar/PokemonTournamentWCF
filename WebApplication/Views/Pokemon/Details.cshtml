@@ -1,0 +1,74 @@
+﻿@model WebApplication.Models.Pokemon
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pokemon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caracteristiques.PV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caracteristiques.PV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caracteristiques.Attaque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caracteristiques.Attaque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caracteristiques.Defense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caracteristiques.Defense)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caracteristiques.Vitesse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caracteristiques.Vitesse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caracteristiques.Esquive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caracteristiques.Esquive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

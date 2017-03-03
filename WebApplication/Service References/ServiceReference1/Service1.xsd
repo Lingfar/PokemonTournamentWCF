@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PokemonTournamentEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PokemonTournamentEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ETypeElement">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Eau" />
+      <xs:enumeration value="Feu" />
+      <xs:enumeration value="Sol" />
+      <xs:enumeration value="Insecte" />
+      <xs:enumeration value="Plante" />
+      <xs:enumeration value="Dragon" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ETypeElement" nillable="true" type="tns:ETypeElement" />
+  <xs:simpleType name="EPhaseTournoi">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SeiziemeFinale" />
+      <xs:enumeration value="HuitimeFinale" />
+      <xs:enumeration value="QuartFinale" />
+      <xs:enumeration value="DemiFinale" />
+      <xs:enumeration value="Finale" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EPhaseTournoi" nillable="true" type="tns:EPhaseTournoi" />
+</xs:schema>

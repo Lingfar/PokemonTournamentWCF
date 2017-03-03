@@ -21,6 +21,10 @@ public interface IService
     // TODO: Add your service operations here
     [OperationContract]
     List<PokemonComposite> GetAllPokemons();
+    [OperationContract]
+    PokemonComposite GetPokemonById(int id);
+    [OperationContract]
+    bool DeletePokemonById(int id);
 
     [OperationContract]
     List<StadeComposite> GetAllStades();

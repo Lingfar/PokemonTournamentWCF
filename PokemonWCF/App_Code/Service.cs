@@ -20,6 +20,18 @@ public class Service : IService
         }
         return allPokemons;
     }
+    public bool AddNewPokemon(PokemonComposite pokemon)
+    {
+        if (pokemon.Nom != null && pokemon.Caracteristique != null)
+        {
+            return BusinessManager.Instance.AddPokemon(PokemonCompositeToPokemon(pokemon));
+        }
+        return false;
+    }
+    public bool DeletePokemonById(int id)
+    {
+        return BusinessManager.Instance.DeletePokemon(PokemonCompositeToPokemon(GetPokemonById(id)));
+    }
 
     public List<StadeComposite> GetAllStades()
     {
@@ -51,24 +63,29 @@ public class Service : IService
         return allTournois;
     }
 
-    public bool AddNewPokemon(PokemonComposite pokemon)
+    public PokemonComposite GetPokemonById(int id)
     {
-        if (pokemon.Nom != null && pokemon.Caracteristique != null)
-        {
-            Pokemon p = new Pokemon();
-            p.Nom = pokemon.Nom;
-            p.Type = pokemon.Type;
+        return new PokemonComposite(BusinessManager.Instance.GetAllPokemons().Find(p => p.ID == id));
+    }
 
-            Caracteristique c = new Caracteristique();
-            c.PV = pokemon.Caracteristique.PV;
-            c.Attaque = pokemon.Caracteristique.Attaque;
-            c.Defense = pokemon.Caracteristique.Defense;
-            c.Vitesse = pokemon.Caracteristique.Vitesse;
-            c.Esquive = pokemon.Caracteristique.Esquive;
 
-            p.Caracteristiques = c;
-            return BusinessManager.Instance.AddPokemon(p);
-        }
-        return false;
+
+    private Pokemon PokemonCompositeToPokemon(PokemonComposite pokemon)
+    {
+        Pokemon p = new Pokemon();
+        p.ID = pokemon.Id;
+        p.Nom = pokemon.Nom;
+        p.Type = pokemon.Type;
+
+        Caracteristique c = new Caracteristique();
+        c.ID = pokemon.Caracteristique.Id;
+        c.PV = pokemon.Caracteristique.PV;
+        c.Attaque = pokemon.Caracteristique.Attaque;
+        c.Defense = pokemon.Caracteristique.Defense;
+        c.Vitesse = pokemon.Caracteristique.Vitesse;
+        c.Esquive = pokemon.Caracteristique.Esquive;
+
+        p.Caracteristiques = c;
+        return p;
     }
 }
