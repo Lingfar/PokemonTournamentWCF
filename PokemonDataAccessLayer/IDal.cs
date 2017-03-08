@@ -16,6 +16,7 @@ namespace PokemonDataAccessLayer
         List<Tournoi> GetAllTournois();
         List<Pokemon> GetAllPokemons();
         List<Pokemon> GetAllPokemonsByType(ETypeElement type);
+        Pokemon GetPokemonById(int id);
         List<Match> GetAllMatches();
         List<Stade> GetAllStades();
         List<Caracteristique> GetAllCaracteristiques();

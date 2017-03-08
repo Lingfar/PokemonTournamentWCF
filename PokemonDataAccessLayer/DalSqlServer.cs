@@ -432,7 +432,7 @@ namespace PokemonDataAccessLayer
             }
             return tournoi;
         }
-        private Tournoi GetTournoiById(int id)
+        public Tournoi GetTournoiById(int id)
         {
             Tournoi t = new Tournoi();
             DataTable dt = Select("select * from Tournoi where id=" + id.ToString());
@@ -475,7 +475,7 @@ namespace PokemonDataAccessLayer
             }
             return poke;
         }
-        private Pokemon GetPokemonById(int id)
+        public Pokemon GetPokemonById(int id)
         {
             Pokemon poke = new Pokemon();
             DataTable dt = Select("select * from pokemon where id=" + id.ToString());

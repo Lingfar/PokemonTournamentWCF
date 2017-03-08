@@ -56,6 +56,10 @@ namespace PokemonDataAccessLayer
         {
             return dalDb.GetAllPokemonsByType(type);
         }
+        public Pokemon GetPokemonById(int id)
+        {
+            return dalDb.GetPokemonById(id);
+        }
         public List<Match> GetAllMatches()
         {
             return dalDb.GetAllMatches();

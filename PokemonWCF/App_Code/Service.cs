@@ -65,7 +65,7 @@ public class Service : IService
 
     public PokemonComposite GetPokemonById(int id)
     {
-        return new PokemonComposite(BusinessManager.Instance.GetAllPokemons().Find(p => p.ID == id));
+        return new PokemonComposite(BusinessManager.Instance.GetPokemonById(id));
     }
 
 

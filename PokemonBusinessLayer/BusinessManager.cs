@@ -243,6 +243,10 @@ namespace PokemonBusinessLayer
         {
             return dalManagerStub.GetAllPokemons().FindAll(p => p.Caracteristiques.Attaque >= attaque && p.Caracteristiques.PV >= pv);
         }
+        public Pokemon GetPokemonById(int id)
+        {
+            return dalManager.GetPokemonById(id);
+        }
         public List<Match> GetAllMatchs()
         {
             //return dalManagerStub.GetAllMatchs();
