@@ -229,6 +229,10 @@ namespace PokemonBusinessLayer
         {
             return dalManager.GetAllTournois();
         }
+        public Tournoi GetTournoiById(int id)
+        {
+            return dalManager.GetTournoiById(id);
+        }
         public List<Pokemon> GetAllPokemons()
         {
             //return dalManagerStub.GetAllPokemons();
@@ -256,12 +260,20 @@ namespace PokemonBusinessLayer
         {
             return dalManagerStub.GetAllMatchs().FindAll(m => m.Stade.NbPlaces >= nbPlaces);
         }
+        public Match GetMatchById(int id)
+        {
+            return dalManager.GetMatchById(id);
+        }
         public List<Stade> GetAllStades()
         {
             List<Stade> allStades = dalManager.GetAllStades();
             Stade.NbStades = allStades.Count;
             return allStades;
             //return dalManagerStub.GetAllStades();
+        }
+        public Stade GetStadeById(int id)
+        {
+            return dalManager.GetStadeById(id);
         }
         public List<Caracteristique> GetAllCaracteristiques()
         {

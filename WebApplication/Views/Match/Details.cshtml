@@ -1,0 +1,65 @@
+﻿@model WebApplication.Models.Match
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Match</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Vainqueur
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PokemonVainqueur.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tournoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tournoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhaseTournoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhaseTournoi)
+        </dd>
+
+        <dt>
+            Pokemon1
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pokemon1.Nom)
+        </dd>
+
+        <dt>
+            Pokemon2
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pokemon2.Nom)
+        </dd>
+
+        <dt>
+            Stade
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stade.Nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

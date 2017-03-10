@@ -32,12 +32,24 @@ public interface IService
 
     [OperationContract]
     List<StadeComposite> GetAllStades();
+    [OperationContract]
+    StadeComposite GetStadeById(int id);
+    [OperationContract]
+    bool AddNewStade(StadeComposite stade);
+    [OperationContract]
+    bool UpdateStade(StadeComposite stade);
+    [OperationContract]
+    bool DeleteStadeById(int id);
 
     [OperationContract]
     List<MatchComposite> GetAllMatches();
+    [OperationContract]
+    MatchComposite GetMatchById(int id);
 
     [OperationContract]
     List<TournoiComposite> GetAllTournois();
+    [OperationContract]
+    TournoiComposite GetTournoiById(int id);
 
 }
 

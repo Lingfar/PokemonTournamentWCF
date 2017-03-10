@@ -565,17 +565,53 @@ namespace WebApplication.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStades", ReplyAction="http://tempuri.org/IService/GetAllStadesResponse")]
         System.Threading.Tasks.Task<WebApplication.ServiceReference1.StadeComposite[]> GetAllStadesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStadeById", ReplyAction="http://tempuri.org/IService/GetStadeByIdResponse")]
+        WebApplication.ServiceReference1.StadeComposite GetStadeById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStadeById", ReplyAction="http://tempuri.org/IService/GetStadeByIdResponse")]
+        System.Threading.Tasks.Task<WebApplication.ServiceReference1.StadeComposite> GetStadeByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddNewStade", ReplyAction="http://tempuri.org/IService/AddNewStadeResponse")]
+        bool AddNewStade(WebApplication.ServiceReference1.StadeComposite stade);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddNewStade", ReplyAction="http://tempuri.org/IService/AddNewStadeResponse")]
+        System.Threading.Tasks.Task<bool> AddNewStadeAsync(WebApplication.ServiceReference1.StadeComposite stade);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateStade", ReplyAction="http://tempuri.org/IService/UpdateStadeResponse")]
+        bool UpdateStade(WebApplication.ServiceReference1.StadeComposite stade);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateStade", ReplyAction="http://tempuri.org/IService/UpdateStadeResponse")]
+        System.Threading.Tasks.Task<bool> UpdateStadeAsync(WebApplication.ServiceReference1.StadeComposite stade);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteStadeById", ReplyAction="http://tempuri.org/IService/DeleteStadeByIdResponse")]
+        bool DeleteStadeById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteStadeById", ReplyAction="http://tempuri.org/IService/DeleteStadeByIdResponse")]
+        System.Threading.Tasks.Task<bool> DeleteStadeByIdAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllMatches", ReplyAction="http://tempuri.org/IService/GetAllMatchesResponse")]
         WebApplication.ServiceReference1.MatchComposite[] GetAllMatches();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllMatches", ReplyAction="http://tempuri.org/IService/GetAllMatchesResponse")]
         System.Threading.Tasks.Task<WebApplication.ServiceReference1.MatchComposite[]> GetAllMatchesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMatchById", ReplyAction="http://tempuri.org/IService/GetMatchByIdResponse")]
+        WebApplication.ServiceReference1.MatchComposite GetMatchById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMatchById", ReplyAction="http://tempuri.org/IService/GetMatchByIdResponse")]
+        System.Threading.Tasks.Task<WebApplication.ServiceReference1.MatchComposite> GetMatchByIdAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllTournois", ReplyAction="http://tempuri.org/IService/GetAllTournoisResponse")]
         WebApplication.ServiceReference1.TournoiComposite[] GetAllTournois();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllTournois", ReplyAction="http://tempuri.org/IService/GetAllTournoisResponse")]
         System.Threading.Tasks.Task<WebApplication.ServiceReference1.TournoiComposite[]> GetAllTournoisAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetTournoiById", ReplyAction="http://tempuri.org/IService/GetTournoiByIdResponse")]
+        WebApplication.ServiceReference1.TournoiComposite GetTournoiById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetTournoiById", ReplyAction="http://tempuri.org/IService/GetTournoiByIdResponse")]
+        System.Threading.Tasks.Task<WebApplication.ServiceReference1.TournoiComposite> GetTournoiByIdAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -653,6 +689,38 @@ namespace WebApplication.ServiceReference1 {
             return base.Channel.GetAllStadesAsync();
         }
         
+        public WebApplication.ServiceReference1.StadeComposite GetStadeById(int id) {
+            return base.Channel.GetStadeById(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication.ServiceReference1.StadeComposite> GetStadeByIdAsync(int id) {
+            return base.Channel.GetStadeByIdAsync(id);
+        }
+        
+        public bool AddNewStade(WebApplication.ServiceReference1.StadeComposite stade) {
+            return base.Channel.AddNewStade(stade);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddNewStadeAsync(WebApplication.ServiceReference1.StadeComposite stade) {
+            return base.Channel.AddNewStadeAsync(stade);
+        }
+        
+        public bool UpdateStade(WebApplication.ServiceReference1.StadeComposite stade) {
+            return base.Channel.UpdateStade(stade);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateStadeAsync(WebApplication.ServiceReference1.StadeComposite stade) {
+            return base.Channel.UpdateStadeAsync(stade);
+        }
+        
+        public bool DeleteStadeById(int id) {
+            return base.Channel.DeleteStadeById(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteStadeByIdAsync(int id) {
+            return base.Channel.DeleteStadeByIdAsync(id);
+        }
+        
         public WebApplication.ServiceReference1.MatchComposite[] GetAllMatches() {
             return base.Channel.GetAllMatches();
         }
@@ -661,12 +729,28 @@ namespace WebApplication.ServiceReference1 {
             return base.Channel.GetAllMatchesAsync();
         }
         
+        public WebApplication.ServiceReference1.MatchComposite GetMatchById(int id) {
+            return base.Channel.GetMatchById(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication.ServiceReference1.MatchComposite> GetMatchByIdAsync(int id) {
+            return base.Channel.GetMatchByIdAsync(id);
+        }
+        
         public WebApplication.ServiceReference1.TournoiComposite[] GetAllTournois() {
             return base.Channel.GetAllTournois();
         }
         
         public System.Threading.Tasks.Task<WebApplication.ServiceReference1.TournoiComposite[]> GetAllTournoisAsync() {
             return base.Channel.GetAllTournoisAsync();
+        }
+        
+        public WebApplication.ServiceReference1.TournoiComposite GetTournoiById(int id) {
+            return base.Channel.GetTournoiById(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication.ServiceReference1.TournoiComposite> GetTournoiByIdAsync(int id) {
+            return base.Channel.GetTournoiByIdAsync(id);
         }
     }
 }

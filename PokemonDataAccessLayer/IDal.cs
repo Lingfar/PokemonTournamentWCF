@@ -14,11 +14,14 @@ namespace PokemonDataAccessLayer
         bool RegisterLogin(Utilisateur user);
 
         List<Tournoi> GetAllTournois();
+        Tournoi GetTournoiById(int id);
         List<Pokemon> GetAllPokemons();
         List<Pokemon> GetAllPokemonsByType(ETypeElement type);
         Pokemon GetPokemonById(int id);
         List<Match> GetAllMatches();
+        Match GetMatchById(int id);
         List<Stade> GetAllStades();
+        Stade GetStadeById(int id);
         List<Caracteristique> GetAllCaracteristiques();
 
         bool InsertPokemon(Pokemon pokemon);

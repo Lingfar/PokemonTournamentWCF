@@ -48,6 +48,10 @@ namespace PokemonDataAccessLayer
         {
             return dalDb.GetAllTournois();
         }
+        public Tournoi GetTournoiById(int id)
+        {
+            return dalDb.GetTournoiById(id);
+        }
         public List<Pokemon> GetAllPokemons()
         {
             return dalDb.GetAllPokemons();
@@ -64,9 +68,17 @@ namespace PokemonDataAccessLayer
         {
             return dalDb.GetAllMatches();
         }
+        public Match GetMatchById(int id)
+        {
+            return dalDb.GetMatchById(id);
+        }
         public List<Stade> GetAllStades()
         {
             return dalDb.GetAllStades();
+        }
+        public Stade GetStadeById(int id)
+        {
+            return dalDb.GetStadeById(id);
         }
         public List<Caracteristique> GetAllCaracteristiques()
         {

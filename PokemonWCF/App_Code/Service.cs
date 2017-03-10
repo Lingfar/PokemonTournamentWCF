@@ -20,6 +20,10 @@ public class Service : IService
         }
         return allPokemons;
     }
+    public PokemonComposite GetPokemonById(int id)
+    {
+        return new PokemonComposite(BusinessManager.Instance.GetPokemonById(id));
+    }
     public bool AddNewPokemon(PokemonComposite pokemon)
     {
         if (pokemon.Nom != null && pokemon.Caracteristique != null)
@@ -46,6 +50,22 @@ public class Service : IService
         }
         return allStades;
     }
+    public StadeComposite GetStadeById(int id)
+    {
+        return new StadeComposite(BusinessManager.Instance.GetStadeById(id));
+    }
+    public bool AddNewStade(StadeComposite stade)
+    {
+        return BusinessManager.Instance.AddStade(StadeCompositeToStade(stade));
+    }
+    public bool UpdateStade(StadeComposite stade)
+    {
+        return BusinessManager.Instance.UpdateStade(StadeCompositeToStade(stade));
+    }
+    public bool DeleteStadeById(int id)
+    {
+        return BusinessManager.Instance.DeleteStade(StadeCompositeToStade(GetStadeById(id)));
+    }
 
     public List<MatchComposite> GetAllMatches()
     {
@@ -55,6 +75,10 @@ public class Service : IService
             allMatches.Add(new MatchComposite(m));
         }
         return allMatches;
+    }
+    public MatchComposite GetMatchById(int id)
+    {
+        return new MatchComposite(BusinessManager.Instance.GetMatchById(id));
     }
 
     public List<TournoiComposite> GetAllTournois()
@@ -66,18 +90,15 @@ public class Service : IService
         }
         return allTournois;
     }
-
-    public PokemonComposite GetPokemonById(int id)
+    public TournoiComposite GetTournoiById(int id)
     {
-        return new PokemonComposite(BusinessManager.Instance.GetPokemonById(id));
+        return new TournoiComposite(BusinessManager.Instance.GetTournoiById(id));
     }
-
 
 
     private Pokemon PokemonCompositeToPokemon(PokemonComposite pokemon)
     {
-        Pokemon p = new Pokemon();
-        p.ID = pokemon.Id;
+        Pokemon p = new Pokemon(pokemon.Id);
         p.Nom = pokemon.Nom;
         p.Type = pokemon.Type;
 
@@ -91,5 +112,16 @@ public class Service : IService
 
         p.Caracteristiques = c;
         return p;
+    }
+    private Stade StadeCompositeToStade(StadeComposite s)
+    {
+        Stade stade = new Stade(s.Id);
+        stade.Nom = s.Nom;
+        stade.Type = (ETypeElement)s.Type;
+        stade.NbPlaces = s.NbPlaces;
+        stade.Attaque = s.Attaque;
+        stade.Defense = s.Defense;
+        
+        return stade;
     }
 }

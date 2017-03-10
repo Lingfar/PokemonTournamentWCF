@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebApplication.Models.Match>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PokemonVainqueur.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tournoi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhaseTournoi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PokemonVainqueur.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tournoi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhaseTournoi)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

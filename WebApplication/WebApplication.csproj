@@ -200,7 +200,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="Controllers\PokemonController.cs" />
+    <Compile Include="Controllers\StadeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -209,7 +211,10 @@
     <Compile Include="Models\EntityObject.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Match.cs" />
     <Compile Include="Models\Pokemon.cs" />
+    <Compile Include="Models\Stade.cs" />
+    <Compile Include="Models\Tournoi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -313,6 +318,13 @@
     <Content Include="Views\Pokemon\Delete.cshtml" />
     <Content Include="Views\Pokemon\Create.cshtml" />
     <Content Include="Views\Pokemon\Edit.cshtml" />
+    <Content Include="Views\Stade\Index.cshtml" />
+    <Content Include="Views\Stade\Details.cshtml" />
+    <Content Include="Views\Stade\Create.cshtml" />
+    <Content Include="Views\Stade\Edit.cshtml" />
+    <Content Include="Views\Stade\Delete.cshtml" />
+    <Content Include="Views\Match\Index.cshtml" />
+    <Content Include="Views\Match\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

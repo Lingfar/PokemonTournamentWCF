@@ -57,7 +57,6 @@ namespace WebApplication.Controllers
         {
             try
             {
-                // TODO: Add insert logic here 
                 if (service.AddNewPokemon(ConvertFormCollectionToPokemonComposite(collection)))
                     return RedirectToAction("Index");
                 else
@@ -81,7 +80,6 @@ namespace WebApplication.Controllers
         {
             try
             {
-                // TODO: Add update logic here
                 if (service.UpdatePokemon(ConvertFormCollectionToPokemonComposite(id, caracId, collection)))
                     return RedirectToAction("Index");
                 else
