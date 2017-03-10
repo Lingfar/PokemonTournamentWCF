@@ -20,11 +20,23 @@
   <wsdl:message name="IService_GetPokemonById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPokemonByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_AddNewPokemon_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewPokemon" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddNewPokemon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewPokemonResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_DeletePokemonById_InputMessage">
     <wsdl:part name="parameters" element="tns:DeletePokemonById" />
   </wsdl:message>
   <wsdl:message name="IService_DeletePokemonById_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeletePokemonByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdatePokemon_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePokemon" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdatePokemon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePokemonResponse" />
   </wsdl:message>
   <wsdl:message name="IService_GetAllStades_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllStades" />
@@ -44,12 +56,6 @@
   <wsdl:message name="IService_GetAllTournois_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTournoisResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_AddNewPokemon_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddNewPokemon" />
-  </wsdl:message>
-  <wsdl:message name="IService_AddNewPokemon_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddNewPokemonResponse" />
-  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetAllPokemons">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllPokemons" message="tns:IService_GetAllPokemons_InputMessage" />
@@ -59,9 +65,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPokemonById" message="tns:IService_GetPokemonById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPokemonByIdResponse" message="tns:IService_GetPokemonById_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddNewPokemon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddNewPokemon" message="tns:IService_AddNewPokemon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddNewPokemonResponse" message="tns:IService_AddNewPokemon_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="DeletePokemonById">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/DeletePokemonById" message="tns:IService_DeletePokemonById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DeletePokemonByIdResponse" message="tns:IService_DeletePokemonById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePokemon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdatePokemon" message="tns:IService_UpdatePokemon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdatePokemonResponse" message="tns:IService_UpdatePokemon_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllStades">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllStades" message="tns:IService_GetAllStades_InputMessage" />
@@ -74,10 +88,6 @@
     <wsdl:operation name="GetAllTournois">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllTournois" message="tns:IService_GetAllTournois_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllTournoisResponse" message="tns:IService_GetAllTournois_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddNewPokemon">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddNewPokemon" message="tns:IService_AddNewPokemon_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddNewPokemonResponse" message="tns:IService_AddNewPokemon_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -100,8 +110,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddNewPokemon">
+      <soap:operation soapAction="http://tempuri.org/IService/AddNewPokemon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DeletePokemonById">
       <soap:operation soapAction="http://tempuri.org/IService/DeletePokemonById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePokemon">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdatePokemon" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -129,15 +157,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllTournois">
       <soap:operation soapAction="http://tempuri.org/IService/GetAllTournois" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddNewPokemon">
-      <soap:operation soapAction="http://tempuri.org/IService/AddNewPokemon" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

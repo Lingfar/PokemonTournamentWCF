@@ -27,6 +27,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddNewPokemon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="pokemon" nillable="true" type="q3:PokemonComposite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewPokemonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewPokemonResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="DeletePokemonById">
     <xs:complexType>
       <xs:sequence>
@@ -41,6 +55,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdatePokemon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="pokemon" nillable="true" type="q4:PokemonComposite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePokemonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePokemonResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllStades">
     <xs:complexType>
       <xs:sequence />
@@ -49,7 +77,7 @@
   <xs:element name="GetAllStadesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetAllStadesResult" nillable="true" type="q3:ArrayOfStadeComposite" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetAllStadesResult" nillable="true" type="q5:ArrayOfStadeComposite" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -61,7 +89,7 @@
   <xs:element name="GetAllMatchesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetAllMatchesResult" nillable="true" type="q4:ArrayOfMatchComposite" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetAllMatchesResult" nillable="true" type="q6:ArrayOfMatchComposite" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -73,21 +101,7 @@
   <xs:element name="GetAllTournoisResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetAllTournoisResult" nillable="true" type="q5:ArrayOfTournoiComposite" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewPokemon">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="pokemon" nillable="true" type="q6:PokemonComposite" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddNewPokemonResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddNewPokemonResult" type="xs:boolean" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetAllTournoisResult" nillable="true" type="q7:ArrayOfTournoiComposite" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

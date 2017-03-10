@@ -541,11 +541,23 @@ namespace WebApplication.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetPokemonById", ReplyAction="http://tempuri.org/IService/GetPokemonByIdResponse")]
         System.Threading.Tasks.Task<WebApplication.ServiceReference1.PokemonComposite> GetPokemonByIdAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddNewPokemon", ReplyAction="http://tempuri.org/IService/AddNewPokemonResponse")]
+        bool AddNewPokemon(WebApplication.ServiceReference1.PokemonComposite pokemon);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddNewPokemon", ReplyAction="http://tempuri.org/IService/AddNewPokemonResponse")]
+        System.Threading.Tasks.Task<bool> AddNewPokemonAsync(WebApplication.ServiceReference1.PokemonComposite pokemon);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeletePokemonById", ReplyAction="http://tempuri.org/IService/DeletePokemonByIdResponse")]
         bool DeletePokemonById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeletePokemonById", ReplyAction="http://tempuri.org/IService/DeletePokemonByIdResponse")]
         System.Threading.Tasks.Task<bool> DeletePokemonByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdatePokemon", ReplyAction="http://tempuri.org/IService/UpdatePokemonResponse")]
+        bool UpdatePokemon(WebApplication.ServiceReference1.PokemonComposite pokemon);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdatePokemon", ReplyAction="http://tempuri.org/IService/UpdatePokemonResponse")]
+        System.Threading.Tasks.Task<bool> UpdatePokemonAsync(WebApplication.ServiceReference1.PokemonComposite pokemon);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStades", ReplyAction="http://tempuri.org/IService/GetAllStadesResponse")]
         WebApplication.ServiceReference1.StadeComposite[] GetAllStades();
@@ -564,12 +576,6 @@ namespace WebApplication.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllTournois", ReplyAction="http://tempuri.org/IService/GetAllTournoisResponse")]
         System.Threading.Tasks.Task<WebApplication.ServiceReference1.TournoiComposite[]> GetAllTournoisAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddNewPokemon", ReplyAction="http://tempuri.org/IService/AddNewPokemonResponse")]
-        bool AddNewPokemon(WebApplication.ServiceReference1.PokemonComposite pokemon);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddNewPokemon", ReplyAction="http://tempuri.org/IService/AddNewPokemonResponse")]
-        System.Threading.Tasks.Task<bool> AddNewPokemonAsync(WebApplication.ServiceReference1.PokemonComposite pokemon);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -615,12 +621,28 @@ namespace WebApplication.ServiceReference1 {
             return base.Channel.GetPokemonByIdAsync(id);
         }
         
+        public bool AddNewPokemon(WebApplication.ServiceReference1.PokemonComposite pokemon) {
+            return base.Channel.AddNewPokemon(pokemon);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddNewPokemonAsync(WebApplication.ServiceReference1.PokemonComposite pokemon) {
+            return base.Channel.AddNewPokemonAsync(pokemon);
+        }
+        
         public bool DeletePokemonById(int id) {
             return base.Channel.DeletePokemonById(id);
         }
         
         public System.Threading.Tasks.Task<bool> DeletePokemonByIdAsync(int id) {
             return base.Channel.DeletePokemonByIdAsync(id);
+        }
+        
+        public bool UpdatePokemon(WebApplication.ServiceReference1.PokemonComposite pokemon) {
+            return base.Channel.UpdatePokemon(pokemon);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdatePokemonAsync(WebApplication.ServiceReference1.PokemonComposite pokemon) {
+            return base.Channel.UpdatePokemonAsync(pokemon);
         }
         
         public WebApplication.ServiceReference1.StadeComposite[] GetAllStades() {
@@ -645,14 +667,6 @@ namespace WebApplication.ServiceReference1 {
         
         public System.Threading.Tasks.Task<WebApplication.ServiceReference1.TournoiComposite[]> GetAllTournoisAsync() {
             return base.Channel.GetAllTournoisAsync();
-        }
-        
-        public bool AddNewPokemon(WebApplication.ServiceReference1.PokemonComposite pokemon) {
-            return base.Channel.AddNewPokemon(pokemon);
-        }
-        
-        public System.Threading.Tasks.Task<bool> AddNewPokemonAsync(WebApplication.ServiceReference1.PokemonComposite pokemon) {
-            return base.Channel.AddNewPokemonAsync(pokemon);
         }
     }
 }

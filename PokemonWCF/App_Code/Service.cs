@@ -28,6 +28,10 @@ public class Service : IService
         }
         return false;
     }
+    public bool UpdatePokemon(PokemonComposite pokemon)
+    {
+        return BusinessManager.Instance.UpdatePokemon(PokemonCompositeToPokemon(pokemon));
+    }
     public bool DeletePokemonById(int id)
     {
         return BusinessManager.Instance.DeletePokemon(PokemonCompositeToPokemon(GetPokemonById(id)));

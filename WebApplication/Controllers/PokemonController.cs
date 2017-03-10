@@ -11,6 +11,28 @@ namespace WebApplication.Controllers
     {
         private ServiceReference1.ServiceClient service = new ServiceReference1.ServiceClient();
 
+        private ServiceReference1.PokemonComposite ConvertFormCollectionToPokemonComposite(FormCollection collection)
+        {
+            ServiceReference1.PokemonComposite p = new ServiceReference1.PokemonComposite();
+            p.Nom = collection["Nom"];
+            p.Type = (ServiceReference1.ETypeElement)Enum.Parse(typeof(ServiceReference1.ETypeElement), collection["Type"]);
+            p.Caracteristique = new ServiceReference1.CaracterisiqueComposite();
+            p.Caracteristique.PV = Convert.ToInt32(collection["Caracteristiques.PV"]);
+            p.Caracteristique.Attaque = Convert.ToInt32(collection["Caracteristiques.Attaque"]);
+            p.Caracteristique.Defense = Convert.ToInt32(collection["Caracteristiques.Defense"]);
+            p.Caracteristique.Vitesse = Convert.ToInt32(collection["Caracteristiques.Vitesse"]);
+            p.Caracteristique.Esquive = Convert.ToInt32(collection["Caracteristiques.Esquive"]);
+            return p;
+        }
+
+        private ServiceReference1.PokemonComposite ConvertFormCollectionToPokemonComposite(int id, int caracId, FormCollection collection)
+        {
+            ServiceReference1.PokemonComposite p = ConvertFormCollectionToPokemonComposite(collection);
+            p.Id = id;
+            p.Caracteristique.Id = caracId;
+            return p;
+        }
+
         // GET: Pokemon
         public ActionResult Index()
         {
@@ -35,13 +57,8 @@ namespace WebApplication.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-                ServiceReference1.PokemonComposite p = new ServiceReference1.PokemonComposite();
-                p.Nom = collection["Nom"];
-                p.Type = (ServiceReference1.ETypeElement) Enum.Parse(typeof(ServiceReference1.ETypeElement), collection["Type"]);
-                p.Caracteristique = new ServiceReference1.CaracterisiqueComposite();
-
-                if (service.AddNewPokemon(p))
+                // TODO: Add insert logic here 
+                if (service.AddNewPokemon(ConvertFormCollectionToPokemonComposite(collection)))
                     return RedirectToAction("Index");
                 else
                     return View();
@@ -60,13 +77,15 @@ namespace WebApplication.Controllers
 
         // POST: Pokemon/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, int caracId, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (service.UpdatePokemon(ConvertFormCollectionToPokemonComposite(id, caracId, collection)))
+                    return RedirectToAction("Index");
+                else
+                    return View();
             }
             catch
             {

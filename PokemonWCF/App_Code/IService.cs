@@ -24,7 +24,11 @@ public interface IService
     [OperationContract]
     PokemonComposite GetPokemonById(int id);
     [OperationContract]
+    bool AddNewPokemon(PokemonComposite pokemon);
+    [OperationContract]
     bool DeletePokemonById(int id);
+    [OperationContract]
+    bool UpdatePokemon(PokemonComposite pokemon);
 
     [OperationContract]
     List<StadeComposite> GetAllStades();
@@ -35,8 +39,6 @@ public interface IService
     [OperationContract]
     List<TournoiComposite> GetAllTournois();
 
-    [OperationContract]
-    bool AddNewPokemon(PokemonComposite pokemon);
 }
 
 // Use a data contract as illustrated in the sample below to add composite types to service operations.
