@@ -124,6 +124,8 @@ namespace PokemonTournamentEntities
             decimal multiplicatorP2 = GetMultiplicatorBetweenType(pokemon2.Type, pokemon1.Type);
             while (newCaracP1.PV > 0 && newCaracP2.PV > 0)
             {
+                int i = (int)Math.Ceiling(multiplicatorP1 * (decimal)newCaracP1.Attaque / (decimal)newCaracP2.Defense * 4m);
+                int y = (int)Math.Ceiling(multiplicatorP2 * (decimal)newCaracP2.Attaque / (decimal)newCaracP1.Defense * 4m);
                 if (!EsquiveOrNot(pokemon2))
                     newCaracP2.PV -= (int)Math.Ceiling(multiplicatorP1 * (decimal)newCaracP1.Attaque / (decimal)newCaracP2.Defense * 4m);
                 if (!EsquiveOrNot(pokemon1))

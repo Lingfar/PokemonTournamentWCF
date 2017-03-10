@@ -10,7 +10,6 @@ namespace WebApplication.Controllers
     public class PokemonController : Controller
     {
         private ServiceReference1.ServiceClient service = new ServiceReference1.ServiceClient();
-
         private ServiceReference1.PokemonComposite ConvertFormCollectionToPokemonComposite(FormCollection collection)
         {
             ServiceReference1.PokemonComposite p = new ServiceReference1.PokemonComposite();
@@ -24,7 +23,6 @@ namespace WebApplication.Controllers
             p.Caracteristique.Esquive = Convert.ToInt32(collection["Caracteristiques.Esquive"]);
             return p;
         }
-
         private ServiceReference1.PokemonComposite ConvertFormCollectionToPokemonComposite(int id, int caracId, FormCollection collection)
         {
             ServiceReference1.PokemonComposite p = ConvertFormCollectionToPokemonComposite(collection);

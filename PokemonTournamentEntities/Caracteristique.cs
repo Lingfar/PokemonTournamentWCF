@@ -20,7 +20,7 @@ namespace PokemonTournamentEntities
                 if (value > 200)
                     pv = 200;
                 else if (value <= 0)
-                    pv = 1;
+                    pv = 0;
                 else
                     pv = value;
             }

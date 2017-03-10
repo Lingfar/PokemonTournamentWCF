@@ -20,7 +20,6 @@ namespace WebApplication.Controllers
             s.Defense = Convert.ToInt32(collection["Defense"]);
             return s;
         }
-
         private ServiceReference1.StadeComposite ConvertFormCollectionToStadeComposite(int id, FormCollection collection)
         {
             ServiceReference1.StadeComposite s = ConvertFormCollectionToStadeComposite(collection);

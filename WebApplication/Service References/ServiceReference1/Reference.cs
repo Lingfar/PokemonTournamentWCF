@@ -612,6 +612,12 @@ namespace WebApplication.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetTournoiById", ReplyAction="http://tempuri.org/IService/GetTournoiByIdResponse")]
         System.Threading.Tasks.Task<WebApplication.ServiceReference1.TournoiComposite> GetTournoiByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/NewTournoi", ReplyAction="http://tempuri.org/IService/NewTournoiResponse")]
+        bool NewTournoi();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/NewTournoi", ReplyAction="http://tempuri.org/IService/NewTournoiResponse")]
+        System.Threading.Tasks.Task<bool> NewTournoiAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -751,6 +757,14 @@ namespace WebApplication.ServiceReference1 {
         
         public System.Threading.Tasks.Task<WebApplication.ServiceReference1.TournoiComposite> GetTournoiByIdAsync(int id) {
             return base.Channel.GetTournoiByIdAsync(id);
+        }
+        
+        public bool NewTournoi() {
+            return base.Channel.NewTournoi();
+        }
+        
+        public System.Threading.Tasks.Task<bool> NewTournoiAsync() {
+            return base.Channel.NewTournoiAsync();
         }
     }
 }

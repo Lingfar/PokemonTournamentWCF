@@ -94,7 +94,10 @@ public class Service : IService
     {
         return new TournoiComposite(BusinessManager.Instance.GetTournoiById(id));
     }
-
+    public bool NewTournoi(string name)
+    {
+        return BusinessManager.Instance.NewTournoi(name);
+    }
 
     private Pokemon PokemonCompositeToPokemon(PokemonComposite pokemon)
     {

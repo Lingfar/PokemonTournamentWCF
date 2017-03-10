@@ -17,7 +17,7 @@ namespace PokemonBusinessLayer
         private PokemonDataAccessLayerStub.DalManager dalManagerStub { get; set; }
         private Random rng { get; set; }
 
-        private PokemonDataAccessLayer.DalManager dalManager { get; set; } 
+        private PokemonDataAccessLayer.DalManager dalManager { get; set; }
 
         private BusinessManager()
         {
@@ -211,7 +211,7 @@ namespace PokemonBusinessLayer
             return esquive;
         }
         #endregion
-        
+
         public bool CheckConnectionUser(string login, string password)
         {
             bool user = false;
@@ -280,7 +280,7 @@ namespace PokemonBusinessLayer
             //return dalManagerStub.GetAllCaracteristiques();
             return dalManager.GetAllCaracteristiques();
         }
-        
+
         public bool AddStade(Stade stade)
         {
             bool succeed = dalManager.InsertStade(stade);
@@ -300,6 +300,13 @@ namespace PokemonBusinessLayer
         public bool AddTournoi(Tournoi tournoi)
         {
             return dalManager.InsertTournoi(tournoi);
+        }
+        public bool NewTournoi(string name)
+        {
+            Tournoi t = new Tournoi(name);
+            t.SetPokemonsAndStades(GetAllPokemons(), GetAllStades());
+            t.Run();
+            return AddTournoi(t);
         }
         public bool AddPokemon(Pokemon pokemon)
         {

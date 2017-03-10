@@ -50,6 +50,8 @@ public interface IService
     List<TournoiComposite> GetAllTournois();
     [OperationContract]
     TournoiComposite GetTournoiById(int id);
+    [OperationContract]
+    bool NewTournoi(string name);
 
 }
 
