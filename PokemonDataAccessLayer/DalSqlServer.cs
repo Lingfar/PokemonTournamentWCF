@@ -432,7 +432,7 @@ namespace PokemonDataAccessLayer
             }
             return tournoi;
         }
-        private Tournoi GetTournoiById(int id)
+        public Tournoi GetTournoiById(int id)
         {
             Tournoi t = new Tournoi();
             DataTable dt = Select("select * from Tournoi where id=" + id.ToString());
@@ -475,7 +475,7 @@ namespace PokemonDataAccessLayer
             }
             return poke;
         }
-        private Pokemon GetPokemonById(int id)
+        public Pokemon GetPokemonById(int id)
         {
             Pokemon poke = new Pokemon();
             DataTable dt = Select("select * from pokemon where id=" + id.ToString());
@@ -527,7 +527,7 @@ namespace PokemonDataAccessLayer
             }
             return stade;
         }
-        private Stade GetStadeById(int id)
+        public Stade GetStadeById(int id)
         {
             Stade stade = new Stade();
             DataTable dt = Select("select * from Stade where id=" + id.ToString());
@@ -572,6 +572,16 @@ namespace PokemonDataAccessLayer
                 match.Pokemon2 = GetPokemonById(Convert.ToInt32(item["Pokemon2"]));
                 match.PhaseTournoi = (EPhaseTournoi)Convert.ToInt32(item["PhaseTournoi"]);
                 match.Stade = GetStadeById(Convert.ToInt32(item["Stade"]));
+            }
+            return match;
+        }
+        public Match GetMatchById(int id)
+        {
+            Match match = new Match();
+            DataTable dt = Select("select * from Match where id=" + id.ToString());
+            if (dt.Rows.Count > 0)
+            {
+                match = GetMatch(dt.Rows[0]);
             }
             return match;
         }

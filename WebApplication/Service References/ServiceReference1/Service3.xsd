@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49344/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PokemonTournamentEntities" />
+  <xs:complexType name="ArrayOfPokemonComposite">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PokemonComposite" nillable="true" type="tns:PokemonComposite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPokemonComposite" nillable="true" type="tns:ArrayOfPokemonComposite" />
+  <xs:complexType name="PokemonComposite">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityObjectComposite">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Caracteristique" nillable="true" type="tns:CaracterisiqueComposite" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PokemonTournamentEntities" minOccurs="0" name="Type" type="q1:ETypeElement" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PokemonComposite" nillable="true" type="tns:PokemonComposite" />
+  <xs:complexType name="EntityObjectComposite">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityObjectComposite" nillable="true" type="tns:EntityObjectComposite" />
+  <xs:complexType name="CaracterisiqueComposite">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityObjectComposite">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Attaque" type="xs:int" />
+          <xs:element minOccurs="0" name="Defense" type="xs:int" />
+          <xs:element minOccurs="0" name="Esquive" type="xs:int" />
+          <xs:element minOccurs="0" name="PV" type="xs:int" />
+          <xs:element minOccurs="0" name="Vitesse" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CaracterisiqueComposite" nillable="true" type="tns:CaracterisiqueComposite" />
+  <xs:complexType name="ArrayOfStadeComposite">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StadeComposite" nillable="true" type="tns:StadeComposite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStadeComposite" nillable="true" type="tns:ArrayOfStadeComposite" />
+  <xs:complexType name="StadeComposite">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityObjectComposite">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Attaque" type="xs:int" />
+          <xs:element minOccurs="0" name="Defense" type="xs:int" />
+          <xs:element minOccurs="0" name="NbPlaces" type="xs:int" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PokemonTournamentEntities" minOccurs="0" name="Type" type="q2:ETypeElement" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StadeComposite" nillable="true" type="tns:StadeComposite" />
+  <xs:complexType name="ArrayOfMatchComposite">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MatchComposite" nillable="true" type="tns:MatchComposite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMatchComposite" nillable="true" type="tns:ArrayOfMatchComposite" />
+  <xs:complexType name="MatchComposite">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityObjectComposite">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdPokemonVainqueur" type="xs:int" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PokemonTournamentEntities" minOccurs="0" name="PhaseTournoi" type="q3:EPhaseTournoi" />
+          <xs:element minOccurs="0" name="Pokemon1" nillable="true" type="tns:PokemonComposite" />
+          <xs:element minOccurs="0" name="Pokemon2" nillable="true" type="tns:PokemonComposite" />
+          <xs:element minOccurs="0" name="Stade" nillable="true" type="tns:StadeComposite" />
+          <xs:element minOccurs="0" name="Tournoi" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MatchComposite" nillable="true" type="tns:MatchComposite" />
+  <xs:complexType name="ArrayOfTournoiComposite">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TournoiComposite" nillable="true" type="tns:TournoiComposite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTournoiComposite" nillable="true" type="tns:ArrayOfTournoiComposite" />
+  <xs:complexType name="TournoiComposite">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityObjectComposite">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Matches" nillable="true" type="tns:ArrayOfMatchComposite" />
+          <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Pokemons" nillable="true" type="tns:ArrayOfPokemonComposite" />
+          <xs:element minOccurs="0" name="Stades" nillable="true" type="tns:ArrayOfStadeComposite" />
+          <xs:element minOccurs="0" name="Vainqueur" nillable="true" type="tns:PokemonComposite" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TournoiComposite" nillable="true" type="tns:TournoiComposite" />
+</xs:schema>

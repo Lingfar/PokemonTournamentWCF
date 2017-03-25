@@ -17,7 +17,7 @@ namespace PokemonBusinessLayer
         private PokemonDataAccessLayerStub.DalManager dalManagerStub { get; set; }
         private Random rng { get; set; }
 
-        private PokemonDataAccessLayer.DalManager dalManager { get; set; } 
+        private PokemonDataAccessLayer.DalManager dalManager { get; set; }
 
         private BusinessManager()
         {
@@ -211,7 +211,7 @@ namespace PokemonBusinessLayer
             return esquive;
         }
         #endregion
-        
+
         public bool CheckConnectionUser(string login, string password)
         {
             bool user = false;
@@ -229,6 +229,10 @@ namespace PokemonBusinessLayer
         {
             return dalManager.GetAllTournois();
         }
+        public Tournoi GetTournoiById(int id)
+        {
+            return dalManager.GetTournoiById(id);
+        }
         public List<Pokemon> GetAllPokemons()
         {
             //return dalManagerStub.GetAllPokemons();
@@ -243,6 +247,10 @@ namespace PokemonBusinessLayer
         {
             return dalManagerStub.GetAllPokemons().FindAll(p => p.Caracteristiques.Attaque >= attaque && p.Caracteristiques.PV >= pv);
         }
+        public Pokemon GetPokemonById(int id)
+        {
+            return dalManager.GetPokemonById(id);
+        }
         public List<Match> GetAllMatchs()
         {
             //return dalManagerStub.GetAllMatchs();
@@ -252,6 +260,10 @@ namespace PokemonBusinessLayer
         {
             return dalManagerStub.GetAllMatchs().FindAll(m => m.Stade.NbPlaces >= nbPlaces);
         }
+        public Match GetMatchById(int id)
+        {
+            return dalManager.GetMatchById(id);
+        }
         public List<Stade> GetAllStades()
         {
             List<Stade> allStades = dalManager.GetAllStades();
@@ -259,12 +271,16 @@ namespace PokemonBusinessLayer
             return allStades;
             //return dalManagerStub.GetAllStades();
         }
+        public Stade GetStadeById(int id)
+        {
+            return dalManager.GetStadeById(id);
+        }
         public List<Caracteristique> GetAllCaracteristiques()
         {
             //return dalManagerStub.GetAllCaracteristiques();
             return dalManager.GetAllCaracteristiques();
         }
-        
+
         public bool AddStade(Stade stade)
         {
             bool succeed = dalManager.InsertStade(stade);
@@ -284,6 +300,13 @@ namespace PokemonBusinessLayer
         public bool AddTournoi(Tournoi tournoi)
         {
             return dalManager.InsertTournoi(tournoi);
+        }
+        public bool NewTournoi(string name)
+        {
+            Tournoi t = new Tournoi(name);
+            t.SetPokemonsAndStades(GetAllPokemons(), GetAllStades());
+            t.Run();
+            return AddTournoi(t);
         }
         public bool AddPokemon(Pokemon pokemon)
         {
