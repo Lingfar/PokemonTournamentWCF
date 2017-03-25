@@ -614,10 +614,16 @@ namespace WebApplication.ServiceReference1 {
         System.Threading.Tasks.Task<WebApplication.ServiceReference1.TournoiComposite> GetTournoiByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/NewTournoi", ReplyAction="http://tempuri.org/IService/NewTournoiResponse")]
-        bool NewTournoi();
+        bool NewTournoi(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/NewTournoi", ReplyAction="http://tempuri.org/IService/NewTournoiResponse")]
-        System.Threading.Tasks.Task<bool> NewTournoiAsync();
+        System.Threading.Tasks.Task<bool> NewTournoiAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteTournoiById", ReplyAction="http://tempuri.org/IService/DeleteTournoiByIdResponse")]
+        bool DeleteTournoiById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteTournoiById", ReplyAction="http://tempuri.org/IService/DeleteTournoiByIdResponse")]
+        System.Threading.Tasks.Task<bool> DeleteTournoiByIdAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -759,12 +765,20 @@ namespace WebApplication.ServiceReference1 {
             return base.Channel.GetTournoiByIdAsync(id);
         }
         
-        public bool NewTournoi() {
-            return base.Channel.NewTournoi();
+        public bool NewTournoi(string name) {
+            return base.Channel.NewTournoi(name);
         }
         
-        public System.Threading.Tasks.Task<bool> NewTournoiAsync() {
-            return base.Channel.NewTournoiAsync();
+        public System.Threading.Tasks.Task<bool> NewTournoiAsync(string name) {
+            return base.Channel.NewTournoiAsync(name);
+        }
+        
+        public bool DeleteTournoiById(int id) {
+            return base.Channel.DeleteTournoiById(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteTournoiByIdAsync(int id) {
+            return base.Channel.DeleteTournoiByIdAsync(id);
         }
     }
 }

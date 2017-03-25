@@ -52,6 +52,8 @@ public interface IService
     TournoiComposite GetTournoiById(int id);
     [OperationContract]
     bool NewTournoi(string name);
+    [OperationContract]
+    bool DeleteTournoiById(int id);
 
 }
 
@@ -100,6 +102,7 @@ public class TournoiComposite : EntityObjectComposite
 
     public TournoiComposite(Tournoi tournoi)
     {
+        Id = tournoi.ID;
         Nom = tournoi.Nom;
         Vainqueur = new PokemonComposite(tournoi.Vainqueur);
         Pokemons = tournoi.Pokemons.Select(p => new PokemonComposite(p)).ToList();

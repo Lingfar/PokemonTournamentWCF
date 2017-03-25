@@ -37,6 +37,7 @@ namespace WebApplication.Models
 
         public Tournoi(ServiceReference1.TournoiComposite t)
         {
+            ID = t.Id;
             Nom = t.Nom;
             Vainqueur = new Pokemon(t.Vainqueur);
             Matches = t.Matches.Select(m => new Match(m)).ToList();
