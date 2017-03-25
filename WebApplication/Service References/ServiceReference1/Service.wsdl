@@ -98,6 +98,12 @@
   <wsdl:message name="IService_NewTournoi_OutputMessage">
     <wsdl:part name="parameters" element="tns:NewTournoiResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_DeleteTournoiById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTournoiById" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteTournoiById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTournoiByIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetAllPokemons">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllPokemons" message="tns:IService_GetAllPokemons_InputMessage" />
@@ -158,6 +164,10 @@
     <wsdl:operation name="NewTournoi">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/NewTournoi" message="tns:IService_NewTournoi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/NewTournoiResponse" message="tns:IService_NewTournoi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTournoiById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteTournoiById" message="tns:IService_DeleteTournoiById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteTournoiByIdResponse" message="tns:IService_DeleteTournoiById_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -290,6 +300,15 @@
     </wsdl:operation>
     <wsdl:operation name="NewTournoi">
       <soap:operation soapAction="http://tempuri.org/IService/NewTournoi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTournoiById">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteTournoiById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

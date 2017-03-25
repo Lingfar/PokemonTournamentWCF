@@ -231,6 +231,7 @@ namespace PokemonBusinessLayer
         }
         public Tournoi GetTournoiById(int id)
         {
+            Tournoi t = dalManager.GetTournoiById(id);
             return dalManager.GetTournoiById(id);
         }
         public List<Pokemon> GetAllPokemons()

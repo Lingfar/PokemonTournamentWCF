@@ -13,7 +13,7 @@ namespace PokemonDataAccessLayer
     public class DalSqlServer : IDal
     {
         protected string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + @"Bin\PokemonTournament.mdf;Integrated Security=True";
-        
+
         //protected string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Programmation\C#\ZZ2\ServicesWeb\PokemonTournamentWCF\PokemonDataAccessLayer\PokemonTournament.mdf;Integrated Security=True";
 
         public DalSqlServer()
@@ -426,7 +426,7 @@ namespace PokemonDataAccessLayer
                 tournoi.ID = Convert.ToInt32(item["Id"]);
                 tournoi.Nom = item["Nom"].ToString();
                 tournoi.Vainqueur = GetPokemonById(Convert.ToInt32(item["IdPokemonVainqueur"]));
-                tournoi.Matches = GetMatchesByIdTournoi(tournoi.ID).OrderByDescending(p => p.ID).ToList();
+                tournoi.Matches = GetMatchesByIdTournoi(tournoi.ID, tournoi.Nom).OrderByDescending(p => p.ID).ToList();
                 tournoi.Pokemons = GetPokemonsByMatches(tournoi.Matches).OrderBy(p => p.ID).ToList();
                 tournoi.Stades = GetStadesByMatches(tournoi.Matches).OrderBy(p => p.ID).ToList();
             }
@@ -438,7 +438,7 @@ namespace PokemonDataAccessLayer
             DataTable dt = Select("select * from Tournoi where id=" + id.ToString());
             if (dt.Rows.Count > 0)
             {
-                t.Nom = dt.Rows[0]["Nom"].ToString();
+                t = GetTournoi(dt.Rows[0]);
             }
             return t;
         }
@@ -585,15 +585,31 @@ namespace PokemonDataAccessLayer
             }
             return match;
         }
-        private List<Match> GetMatchesByIdTournoi(int idTournoi)
+        private List<Match> GetMatchesByIdTournoi(int idTournoi, string nomTournoi)
         {
             List<Match> listMatches = new List<Match>();
             DataTable dt = Select("select * from match where idTournoi=" + idTournoi.ToString());
             foreach (DataRow item in dt.Rows)
             {
-                listMatches.Add(GetMatch(item));
+                listMatches.Add(GetMatchWithoutTournoi(item, idTournoi, nomTournoi));
             }
             return listMatches;
+        }
+
+        private Match GetMatchWithoutTournoi(DataRow item, int idTournoi, string nomTournoi)
+        {
+            Match match = new Match();
+            if (item != null)
+            {
+                match.ID = Convert.ToInt32(item["Id"]);
+                match.Tournoi = new Tournoi() { ID = idTournoi, Nom = nomTournoi };
+                match.IdPokemonVainqueur = Convert.ToInt32(item["IdPokemonVainqueur"]);
+                match.Pokemon1 = GetPokemonById(Convert.ToInt32(item["Pokemon1"]));
+                match.Pokemon2 = GetPokemonById(Convert.ToInt32(item["Pokemon2"]));
+                match.PhaseTournoi = (EPhaseTournoi)Convert.ToInt32(item["PhaseTournoi"]);
+                match.Stade = GetStadeById(Convert.ToInt32(item["Stade"]));
+            }
+            return match;
         }
 
         public List<Caracteristique> GetAllCaracteristiques()

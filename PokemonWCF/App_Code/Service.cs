@@ -98,6 +98,10 @@ public class Service : IService
     {
         return BusinessManager.Instance.NewTournoi(name);
     }
+    public bool DeleteTournoiById(int id)
+    {
+        return BusinessManager.Instance.DeleteTournoi(TournoiCompositeToTournoi(GetTournoiById(id)));
+    }
 
     private Pokemon PokemonCompositeToPokemon(PokemonComposite pokemon)
     {
@@ -120,11 +124,31 @@ public class Service : IService
     {
         Stade stade = new Stade(s.Id);
         stade.Nom = s.Nom;
-        stade.Type = (ETypeElement)s.Type;
+        stade.Type = s.Type;
         stade.NbPlaces = s.NbPlaces;
         stade.Attaque = s.Attaque;
         stade.Defense = s.Defense;
-        
         return stade;
+    }
+    private Match MatchCompositeToMatch(MatchComposite m)
+    {
+        Match match = new Match();
+        match.ID = m.Id;
+        match.IdPokemonVainqueur = m.IdPokemonVainqueur;
+        match.PhaseTournoi = m.PhaseTournoi;
+        match.Pokemon1 = PokemonCompositeToPokemon(m.Pokemon1);
+        match.Pokemon2 = PokemonCompositeToPokemon(m.Pokemon2);
+        match.Stade = StadeCompositeToStade(m.Stade);
+        return match;
+    }
+    private Tournoi TournoiCompositeToTournoi(TournoiComposite t)
+    {
+        Tournoi tournoi = new Tournoi();
+        tournoi.ID = t.Id;
+        tournoi.Nom = t.Nom;
+        tournoi.Pokemons = t.Pokemons.Select(p => PokemonCompositeToPokemon(p)).ToList();
+        tournoi.Stades = t.Stades.Select(s => StadeCompositeToStade(s)).ToList();
+        tournoi.Matches = t.Matches.Select(m => MatchCompositeToMatch(m)).ToList();
+        return tournoi;
     }
 }

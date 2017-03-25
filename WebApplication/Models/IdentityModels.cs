@@ -35,5 +35,7 @@ namespace WebApplication.Models
         public System.Data.Entity.DbSet<WebApplication.Models.Stade> Stades { get; set; }
 
         public System.Data.Entity.DbSet<WebApplication.Models.Match> Matches { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication.Models.Tournoi> Tournois { get; set; }
     }
 }
