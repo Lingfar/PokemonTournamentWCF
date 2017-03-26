@@ -4,6 +4,19 @@
     ViewBag.Title = "Index";
 }
 
+<script>
+var v = new Coucou("Le typescript c'est bien !");
+
+var button = document.createElement('button')
+button.innerText = "Coucou"
+button.onclick = function() {
+	alert(v.hi())
+}
+
+document.body.appendChild(button);
+</script>
+
+
 <h2>Index</h2>
 
 <p>

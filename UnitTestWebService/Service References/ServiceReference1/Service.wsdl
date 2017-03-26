@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49344/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49344/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49344/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="http://localhost:49344/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PokemonTournamentEntities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_GetAllPokemons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPokemons" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllPokemons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPokemonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPokemonById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPokemonById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPokemonById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPokemonByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddNewPokemon_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewPokemon" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddNewPokemon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewPokemonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeletePokemonById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePokemonById" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeletePokemonById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePokemonByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdatePokemon_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePokemon" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdatePokemon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePokemonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStades" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllStades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllStadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStadeById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStadeById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStadeById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStadeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddNewStade_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewStade" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddNewStade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewStadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateStade_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStade" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateStade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteStadeById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStadeById" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteStadeById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStadeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllMatches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMatches" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllMatches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMatchById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMatchById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllTournois_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTournois" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllTournois_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTournoisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTournoiById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTournoiById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTournoiById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTournoiByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewTournoi_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewTournoi" />
+  </wsdl:message>
+  <wsdl:message name="IService_NewTournoi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewTournoiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteTournoiById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTournoiById" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteTournoiById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTournoiByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="GetAllPokemons">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllPokemons" message="tns:IService_GetAllPokemons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllPokemonsResponse" message="tns:IService_GetAllPokemons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPokemonById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPokemonById" message="tns:IService_GetPokemonById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPokemonByIdResponse" message="tns:IService_GetPokemonById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPokemon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddNewPokemon" message="tns:IService_AddNewPokemon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddNewPokemonResponse" message="tns:IService_AddNewPokemon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePokemonById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeletePokemonById" message="tns:IService_DeletePokemonById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeletePokemonByIdResponse" message="tns:IService_DeletePokemonById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePokemon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdatePokemon" message="tns:IService_UpdatePokemon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdatePokemonResponse" message="tns:IService_UpdatePokemon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllStades" message="tns:IService_GetAllStades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllStadesResponse" message="tns:IService_GetAllStades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStadeById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStadeById" message="tns:IService_GetStadeById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStadeByIdResponse" message="tns:IService_GetStadeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewStade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddNewStade" message="tns:IService_AddNewStade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddNewStadeResponse" message="tns:IService_AddNewStade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateStade" message="tns:IService_UpdateStade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateStadeResponse" message="tns:IService_UpdateStade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStadeById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteStadeById" message="tns:IService_DeleteStadeById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteStadeByIdResponse" message="tns:IService_DeleteStadeById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMatches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllMatches" message="tns:IService_GetAllMatches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllMatchesResponse" message="tns:IService_GetAllMatches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetMatchById" message="tns:IService_GetMatchById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetMatchByIdResponse" message="tns:IService_GetMatchById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTournois">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllTournois" message="tns:IService_GetAllTournois_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllTournoisResponse" message="tns:IService_GetAllTournois_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTournoiById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetTournoiById" message="tns:IService_GetTournoiById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetTournoiByIdResponse" message="tns:IService_GetTournoiById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewTournoi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/NewTournoi" message="tns:IService_NewTournoi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/NewTournoiResponse" message="tns:IService_NewTournoi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTournoiById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteTournoiById" message="tns:IService_DeleteTournoiById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteTournoiByIdResponse" message="tns:IService_DeleteTournoiById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllPokemons">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllPokemons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPokemonById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetPokemonById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPokemon">
+      <soap:operation soapAction="http://tempuri.org/IService/AddNewPokemon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePokemonById">
+      <soap:operation soapAction="http://tempuri.org/IService/DeletePokemonById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePokemon">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdatePokemon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStades">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllStades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStadeById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetStadeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewStade">
+      <soap:operation soapAction="http://tempuri.org/IService/AddNewStade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStade">
+      <soap:operation soapAction="http://tempuri.org/IService/UpdateStade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStadeById">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteStadeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMatches">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllMatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetMatchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTournois">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllTournois" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTournoiById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetTournoiById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewTournoi">
+      <soap:operation soapAction="http://tempuri.org/IService/NewTournoi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTournoiById">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteTournoiById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://localhost:49344/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

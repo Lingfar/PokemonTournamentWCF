@@ -20,6 +20,56 @@
 
     </dl>
 </div>
+
+
+<h3>Liste des matchs</h3>
+<table class="table">
+    <tr>
+        <th>
+            Phase
+        </th>
+        <th>
+            Vainqueur
+        </th>
+        <th>
+            Pokémon 1
+        </th>
+        <th>
+            Pokémon 2
+        </th>
+        <th>
+            Stade
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Matches)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhaseTournoi)
+            </td>
+            <td>
+                @Html.ActionLink(item.PokemonVainqueur.Nom, "Details", "Pokemon", new { id = item.PokemonVainqueur.ID }, null)
+            </td>
+            <td>
+                @Html.ActionLink(item.Pokemon1.Nom, "Details", "Pokemon", new { id = item.Pokemon1.ID }, null)
+            </td>
+            <td>
+                @Html.ActionLink(item.Pokemon2.Nom, "Details", "Pokemon", new { id = item.Pokemon2.ID }, null)
+            </td>
+            <td>
+                @Html.ActionLink(item.Stade.Nom, "Details", "Stade", new { id = item.Stade.ID }, null)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Match", new { id = item.ID }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
