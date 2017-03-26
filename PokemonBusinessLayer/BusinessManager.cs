@@ -231,7 +231,6 @@ namespace PokemonBusinessLayer
         }
         public Tournoi GetTournoiById(int id)
         {
-            Tournoi t = dalManager.GetTournoiById(id);
             return dalManager.GetTournoiById(id);
         }
         public List<Pokemon> GetAllPokemons()
@@ -290,13 +289,19 @@ namespace PokemonBusinessLayer
             return succeed;
             //dalManagerStub.AddNewStade(stade);
         }
-        public void AddMatches(List<Match> matches)
+        public bool AddMatches(List<Match> matches)
         {
+            bool reussi = true;
             foreach (Match m in matches)
             {
                 //dalManagerStub.AddMatchToList(m);
-                dalManager.InsertMatch(m);
+                if(!dalManager.InsertMatch(m))
+                {
+                    reussi = false;
+                    break;
+                }
             }
+            return reussi;
         }
         public bool AddTournoi(Tournoi tournoi)
         {
@@ -307,7 +312,9 @@ namespace PokemonBusinessLayer
             Tournoi t = new Tournoi(name);
             t.SetPokemonsAndStades(GetAllPokemons(), GetAllStades());
             t.Run();
-            return AddTournoi(t);
+            bool reussi = AddTournoi(t);
+            reussi = AddMatches(t.Matches);
+            return reussi;
         }
         public bool AddPokemon(Pokemon pokemon)
         {
