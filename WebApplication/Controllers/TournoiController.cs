@@ -14,6 +14,7 @@ namespace WebApplication.Controllers
         // GET: Tournoi
         public ActionResult Index()
         {
+            var test = service.GetAllTournois().Select(t => new Tournoi(t)).ToList();
             return View(service.GetAllTournois().Select(t => new Tournoi(t)).ToList());
         }
 
